@@ -1,1 +1,1 @@
-my shitty bash collection
+shitty pentester making shitty bash automation scripts
