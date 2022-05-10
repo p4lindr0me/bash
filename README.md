@@ -1,0 +1,1 @@
+my shitty bash collection
