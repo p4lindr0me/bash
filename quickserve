@@ -1,0 +1,22 @@
+
+#!/bin/bash
+
+read -p "Enter a directory: " dir
+
+if ! [ -d "$dir" ]; then
+echo "invalid directory"
+else
+	read -p "Enter a port: " port
+	if [[ "$port" -eq "$port" && "$port" -lt 65535 ]] 2> /dev/null ; then
+		cd $dir
+		echo -e "\nspinning up a static webserver ...\nthis can be used to quickly share a local directory\n"
+		python3 -m http.server --bind 127.0.0.1 $port
+	else
+	echo -e "accepted ports: 49152-65535\n"
+	fi
+fi
+
+# man
+# 2> redirects stderr (standard error) to
+# /dev/null ==> file discarding all input
+# ==> file discards all inputs and stderr
