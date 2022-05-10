@@ -1,0 +1,25 @@
+X#!/bin/bash
+
+snapshotDate=$(date "+%D %T")
+#maxSize=$(df -h /dev/sda4 | grep /dev/sda4 | awk '{print $2}')
+#usedSize=$(df -h /dev/sda4 | grep /dev/sda4 | awk '{print $3}')
+
+defaultLocation=$(sudo timeshift --list-devices | grep mounted | awk '{print $1}')
+
+read -p "create timeshift snapshot? [Y/n] " confirm
+
+if [ "$confirm" == "n" ]; then
+	echo -e "\nsnapshot aborted"
+	exit 130
+else
+
+read -p "use default location $defaultLocation? [Y/n] " confirm2
+if [ "$confirm2" == "n" ]; then
+	read -p "enter a snapshot location: " customLocation
+	grepSize=$(df -h )
+	echo ""
+	read -p "enter a comment [blank for current time]: " customComment
+		sudo timeshift --create --comments "$customComment" --snapshot-device "$customComment" --tags D
+else
+read -p "enter a comment [blank for current time]: " customComment
+sudo timeshift --create --comments "$customComment" --tags D
