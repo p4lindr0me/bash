@@ -1,3 +1,0 @@
-improved backup script
-
-run main.sh -h for a detailed explanation of all parameters
