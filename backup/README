@@ -1,0 +1,28 @@
+Run conf.sh to set up a remote backup location etc
+
+The "temporary directory" is (((temporary)))
+  The script creates it to store the tar.** file before it is being sent to the server
+  After that, the directory will be deleted.
+ 
+ Main.sh can be run with various arguments.
+  Pass the parameter "-h" to get a full list.
+ 
+ Don't expect a lot, it's still in the works
+ 
+ ----------------
+ 
+ [[ DEVELOPMENT GOALS ]]
+ 
+ 1. Implementation of partition-based local storage
+ 
+ 2. Automatic snapshot configuration through systemd timers (might make an OpenRC implementation later on)
+ 
+ 3. File encryption using 2048 / 4096 bit encryption
+ 
+ 4. TUI / GUI implementation
+ 
+ 5. Utilization of tar's multithreading option
+ 
+ 6. Porting the entire thing to C++ for the sake of speed
+ 
+ 7. Gentoo ebuild / Arch pkgbuild
